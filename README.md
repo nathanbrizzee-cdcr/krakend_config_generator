@@ -1,0 +1,1 @@
+# krakend_config_generator
