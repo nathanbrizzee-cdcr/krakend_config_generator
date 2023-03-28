@@ -11,6 +11,7 @@
   "output_encoding": "json",
   "debug_endpoint": false,
   "sequential_start": false,
+  "disable_rest": false,
   "endpoints": [],
   "async_agent": {},
   "extra_config": {

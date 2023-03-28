@@ -3,15 +3,14 @@ import { Value } from "@sinclair/typebox/value"
 import * as fs from "fs"
 import * as path from "path"
 
-import { RootExtraConfigSchema } from "./extraconfig"
+import { RootExtraConfigSchema } from "./rootextraconfig"
 
 const ServiceConfigSchema = Type.Object({
-  // $schema: Type.String({default:"https://www.krakend.io/schema/v3.json"}),
   $schema: Type.Literal("https://www.krakend.io/schema/v3.json"),
-  //version: Type.Number({default:3}),
   version: Type.Literal(3),
   name: Type.String({ default: "Change Me" }),
   project: Type.String({ default: "Change Me" }),
+  /**Host is used only when every api goes to the same backend host. */
   host: Type.Optional(Type.String({ default: "" })),
   port: Type.Literal(8080),
   cache_ttl: Type.String({ default: "0s" }),
@@ -21,6 +20,8 @@ const ServiceConfigSchema = Type.Object({
   output_encoding: Type.String({ default: "json" }),
   debug_endpoint: Type.Boolean({ default: false }),
   sequential_start: Type.Boolean({ default: false }),
+  /**https://www.krakend.io/docs/backends/#disable-restful-checking */
+  disable_rest: Type.Boolean({ default: false }),
   endpoints: Type.Array(Type.Object({})),
   async_agent: Type.Object({}),
   extra_config: RootExtraConfigSchema,
