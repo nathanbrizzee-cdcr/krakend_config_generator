@@ -12,7 +12,24 @@
   "debug_endpoint": false,
   "sequential_start": false,
   "disable_rest": false,
-  "endpoints": [],
+  "endpoints": [
+    {
+      "@comment": "This endpoint reads a list of cars",
+      "endpoint": "/v1/cars",
+      "method": "GET",
+      "timeout": "2s",
+      "concurrent_calls": 1,
+      "input_headers": [
+        "Origin",
+        "Authorization",
+        "Content-Type"
+      ],
+      "input_query_strings": [],
+      "output_encoding": "json",
+      "backend": [],
+      "extra_config": {}
+    }
+  ],
   "async_agent": {},
   "extra_config": {
     "router": {

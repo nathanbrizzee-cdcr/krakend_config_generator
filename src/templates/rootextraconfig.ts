@@ -10,7 +10,10 @@ enum LOGGINGTYPES {
 
 const RootExtraConfigSchema = Type.Object({
   router: Type.Object({
-    return_error_msg: Type.Boolean({ default: true }),
+    /**
+     * @see https://www.krakend.io/docs/backends/detailed-errors/
+     */
+    return_error_msg: Type.Boolean({ default: false }),
   }),
   "telemetry/logging": Type.Object({
     level: Type.Enum(LOGGINGTYPES, { default: "DEBUG" }),
